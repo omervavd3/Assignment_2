@@ -9,7 +9,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 import postRouter from "./routes/postRoutes";
+import authRouter from "./routes/authRoutes";
 app.use("/posts", postRouter);
+app.use("/auth", authRouter);
 
 const initApp = () => {
   return new Promise<Express>((resolve, reject) => {
