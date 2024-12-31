@@ -4,10 +4,22 @@ GET http://localhost:3000/posts
 ###
 
 POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "example@mail.com",
+    "password": "1234"
+}
 
 ###
 
 POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "email": "example@mail.com",
+    "password": "1234"
+} 
 
 ###
 
