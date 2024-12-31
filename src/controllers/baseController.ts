@@ -50,8 +50,11 @@ class BaseController<T> {
     async deleteItemById(req: Request, res: Response) {
         const id = req.params.id;
         try {
-            await this.model.findByIdAndDelete(id);
-            res.status(204).send("Item deleted");
+            const data = await this.model.findById({_id: id});
+            if(data) {
+                await this.model.findByIdAndDelete({_id: id});
+                res.status(204).send("Item deleted");
+            }
         } catch (error) {
             res.status(500).send(error);
         }

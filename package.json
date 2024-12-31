@@ -7,7 +7,8 @@
     "dev": "nodemon ./src/app.ts",
     "start": "tsc && node ./dist/src/app.js",
     "postTest": "jest --detectOpenHandles --coverage --forceExit --testPathPattern=posts",
-    "authTest": "jest --detectOpenHandles --coverage --forceExit --testPathPattern=auth"
+    "authTest": "jest --detectOpenHandles --coverage --forceExit --testPathPattern=auth",
+    "test": "jest --detectOpenHandles --coverage --forceExit"
   },
   "keywords": [],
   "author": "",
