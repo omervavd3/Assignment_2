@@ -7,7 +7,7 @@ const register = async (req: Request, res: Response) => {
     try {
         const {email, password} = req.body;
         if(email == null || password == null) {
-            res.status(400).send("Email and password are required");
+            res.status(404).send("Email and password are required");
             return;
         }
         const user = await UserModel.findOne({email});
@@ -29,7 +29,7 @@ const login = async (req: Request, res: Response) => {
     try {
         const {email, password} = req.body;
         if(email == null || password == null) {
-            res.status(400).send("Email and password are required");
+            res.status(404).send("Email and password are required");
             return;
         }
         const user = await UserModel.findOne({email});
@@ -39,7 +39,7 @@ const login = async (req: Request, res: Response) => {
         }
         const valid = await bcrypt.compare(password, user.password);
         if(!valid) {
-            res.status(400).send("Invalid password");
+            res.status(402).send("Invalid password");
             return;
         }
         if(process.env.ACCESS_TOKEN_SECRET == null || process.env.JWT_EXPIRES_IN == null) {

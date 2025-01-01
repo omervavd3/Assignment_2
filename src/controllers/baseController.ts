@@ -54,6 +54,8 @@ class BaseController<T> {
             if(data) {
                 await this.model.findByIdAndDelete({_id: id});
                 res.status(204).send("Item deleted");
+            } else {
+                res.status(404).send("Not found");
             }
         } catch (error) {
             res.status(500).send(error);
